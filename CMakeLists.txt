@@ -1,7 +1,8 @@
 # For MSVC_RUNTIME_LIBRARY
 cmake_minimum_required(VERSION 3.15)
 
-if (MSVC)
+# TODO: More better MSVC detection
+if(CMAKE_C_FLAGS MATCHES "/DWIN32")
     add_compile_options(/W1 /w14189 /w16268)
 else()
     add_compile_options(-Wunused-function -Warray-bounds -Wunused-variable -Wparentheses -Wint-in-bool-context)
